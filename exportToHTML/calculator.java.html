@@ -1,0 +1,211 @@
+<html>
+<head>
+<title>calculator.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+calculator.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">javax.swing.*</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.*</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionEvent</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionListener</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ComponentAdapter</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ComponentEvent</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">calculator </span><span class="s0">extends </span><span class="s1">Container {</span>
+    <span class="s0">private </span><span class="s1">JPanel calculator</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JTextField txtInput</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnAbout</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnTujuh</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnBersikansemua</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnDelapan</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnBersihkan</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnJumlah</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnSembilan</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnBagi</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnEmpat</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnSatu</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnKali</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnEnam</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnKurang</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnTiga</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnLima</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnDua</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnNol</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton btnTambah</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JTextArea txtHasil</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JPanel panelApp</span><span class="s0">;</span>
+
+    <span class="s0">private double </span><span class="s1">total1 = </span><span class="s2">0.0</span><span class="s0">;</span>
+    <span class="s0">private double </span><span class="s1">total2 = </span><span class="s2">0.0</span><span class="s0">;</span>
+    <span class="s0">private char </span><span class="s1">operasi</span><span class="s0">;</span>
+
+    <span class="s0">private void </span><span class="s1">getOperator(String btnText){</span>
+        <span class="s1">operasi = btnText.charAt(</span><span class="s2">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">total1 = total1 + Double.parseDouble(txtInput.getText())</span><span class="s0">;</span>
+        <span class="s1">txtInput.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">calculator() {</span>
+        <span class="s1">btnNol.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn0 = txtInput.getText()+ btnNol.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn0)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnSatu.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn1 = txtInput.getText()+ btnSatu.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn1)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnDua.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn2 = txtInput.getText()+ btnDua.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn2)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnTiga.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn3 = txtInput.getText()+ btnTiga.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn3)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnEmpat.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn4 = txtInput.getText()+ btnEmpat.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn4)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnLima.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn5 = txtInput.getText()+ btnLima.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn5)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnEnam.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn6 = txtInput.getText()+ btnEnam.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn6)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnTujuh.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn7 = txtInput.getText()+ btnTujuh.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn7)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnDelapan.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn8 = txtInput.getText()+ btnDelapan.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn8)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnSembilan.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String btn9 = txtInput.getText()+ btnSembilan.getText()</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(btn9)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnTambah.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String button_text = btnTambah.getText()</span><span class="s0">;</span>
+                <span class="s1">getOperator(button_text)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnKurang.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String button_text = btnKurang.getText()</span><span class="s0">;</span>
+                <span class="s1">getOperator(button_text)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnKali.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String button_text = btnKali.getText()</span><span class="s0">;</span>
+                <span class="s1">getOperator(button_text)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnBagi.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String button_text = btnBagi.getText()</span><span class="s0">;</span>
+                <span class="s1">getOperator(button_text)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnJumlah.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s0">switch </span><span class="s1">(operasi) {</span>
+                    <span class="s0">case </span><span class="s3">'+'</span><span class="s1">:</span>
+                        <span class="s1">total2 = total1 + Double.parseDouble(txtInput.getText())</span><span class="s0">;</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">'-'</span><span class="s1">:</span>
+                        <span class="s1">total2 = total1 - Double.parseDouble(txtInput.getText())</span><span class="s0">;</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">'*'</span><span class="s1">:</span>
+                        <span class="s1">total2 = total1 * Double.parseDouble(txtInput.getText())</span><span class="s0">;</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">'/'</span><span class="s1">:</span>
+                        <span class="s1">total2 = total1 / Double.parseDouble(txtInput.getText())</span><span class="s0">;</span>
+                        <span class="s0">break;</span>
+                <span class="s1">}</span>
+                <span class="s1">txtHasil.setText(Double.toString(total2))</span><span class="s0">;</span>
+                <span class="s1">total1 = </span><span class="s2">0</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">btnBersikansemua.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">total2 = </span><span class="s2">0</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">txtHasil.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">btnAbout.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">txtHasil.setText(</span><span class="s3">&quot;Ini Calculator Saya :p&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">txtInput.setText(</span><span class="s3">&quot;Ini Calculator Saya :p&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+
+
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">JFrame frame = </span><span class="s0">new </span><span class="s1">JFrame(</span><span class="s3">&quot;calculator&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">frame.setContentPane(</span><span class="s0">new </span><span class="s1">calculator().panelApp)</span><span class="s0">;</span>
+        <span class="s1">frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)</span><span class="s0">;</span>
+        <span class="s1">frame.pack()</span><span class="s0">;</span>
+        <span class="s1">frame.setVisible(</span><span class="s0">true</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span><span class="s0">;</span>
+
+</pre>
+</body>
+</html>
